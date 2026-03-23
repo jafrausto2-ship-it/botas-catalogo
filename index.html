@@ -4,134 +4,90 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catálogo de Botas</title>
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
 
-<div class="container">
-    <div class="titulo-principal">Catálogo de Botas Los Angeles</div>
+    <h1 class="titulo">Catálogo de Botas Los Angeles</h1>
 
-    <div class="row g-4">
+    <div class="contenedor-productos">
 
-        <!-- Shedron -->
-        <div class="col-md-3">
-            <div class="card h-100">
-                <img src="imagenes/Shedron.jpg" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">Shedron</h5>
-                    <p>Tallas: 25, 25.5</p>
-                    <button class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#modalShedron">Ver detalles</button>
-                </div>
-            </div>
+        <!-- BOTAS CHOCOLATE -->
+        <div class="producto">
+            <img src="imagenes/Chocolate.jpg" alt="Bota Chocolate">
+            <h3>Bota Chocolate</h3>
+            <button onclick="mostrarDetalles('Chocolate', ['imagenes/Chocolate.jpg','imagenes/Chocolate1.jpg','imagenes/Chocolate2.jpg'], 'Tallas disponibles: 29, 29.5')">
+                Ver detalles
+            </button>
         </div>
 
-        <!-- Negra -->
-        <div class="col-md-3">
-            <div class="card h-100">
-                <img src="imagenes/Negra.jpg" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">Negra</h5>
-                    <p>Tallas: 26, 26.5, 27, 28.5, 30.5, 31</p>
-                    <button class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#modalNegra">Ver detalles</button>
-                </div>
-            </div>
+        <!-- BOTAS NEGRA -->
+        <div class="producto">
+            <img src="imagenes/Negra.jpg" alt="Bota Negra">
+            <h3>Bota Negra</h3>
+            <button onclick="mostrarDetalles('Negra', ['imagenes/Negra.jpg','imagenes/Negra1.jpg','imagenes/Negra2.jpg'], 'Tallas disponibles: 25, 25.5')">
+                Ver detalles
+            </button>
         </div>
 
-        <!-- Tabaco -->
-        <div class="col-md-3">
-            <div class="card h-100">
-                <img src="imagenes/Tabaco.jpg" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">Tabaco</h5>
-                    <p>Tallas: 28</p>
-                    <button class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#modalTabaco">Ver detalles</button>
-                </div>
-            </div>
+        <!-- BOTAS SHEDRON -->
+        <div class="producto">
+            <img src="imagenes/Shedron.jpg" alt="Bota Shedron">
+            <h3>Bota Shedron</h3>
+            <button onclick="mostrarDetalles('Shedron', ['imagenes/Shedron.jpg','imagenes/Shedron1.jpg','imagenes/Shedron2.jpg'], 'Tallas disponibles: 26, 26.5, 27, 28.5, 30.5, 31')">
+                Ver detalles
+            </button>
         </div>
 
-        <!-- Chocolate -->
-        <div class="col-md-3">
-            <div class="card h-100">
-                <img src="imagenes/Chocolate.jpg" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">Chocolate</h5>
-                    <p>Tallas: 29, 29.5</p>
-                    <button class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#modalChocolate">Ver detalles</button>
-                </div>
-            </div>
+        <!-- BOTAS TABACO -->
+        <div class="producto">
+            <img src="imagenes/Tabaco.jpg" alt="Bota Tabaco">
+            <h3>Bota Tabaco</h3>
+            <button onclick="mostrarDetalles('Tabaco', ['imagenes/Tabaco.jpg','imagenes/Tabaco1.jpg','imagenes/Tabaco2.jpg'], 'Talla disponible: 28')">
+                Ver detalles
+            </button>
         </div>
 
     </div>
-</div>
 
-<!-- MODALES -->
+    <!-- MODAL DETALLES -->
+    <div id="modal" class="modal">
+        <div class="modal-contenido">
+            <span class="cerrar" onclick="cerrarModal()">&times;</span>
+            <h2 id="titulo-detalle"></h2>
+            <p id="descripcion-detalle"></p>
 
-<div class="modal fade" id="modalShedron" tabindex="-1">
-  <div class="modal-dialog modal-lg modal-dialog-centered">
-    <div class="modal-content bg-dark text-white">
-      <div class="modal-header">
-        <h5 class="modal-title">Shedron</h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-      </div>
-      <div class="modal-body text-center">
-        <img src="imagenes/Shedron.jpg" class="img-fluid mb-2">
-        <img src="imagenes/Shedron1.jpg" class="img-fluid mb-2">
-        <img src="imagenes/Shedron2.jpg" class="img-fluid">
-      </div>
+            <!-- AQUI FALTABA modal-body -->
+            <div class="modal-body">
+                <div id="imagenes-detalle" class="galeria"></div>
+            </div>
+
+        </div>
     </div>
-  </div>
-</div>
 
-<div class="modal fade" id="modalNegra" tabindex="-1">
-  <div class="modal-dialog modal-lg modal-dialog-centered">
-    <div class="modal-content bg-dark text-white">
-      <div class="modal-header">
-        <h5 class="modal-title">Negra</h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-      </div>
-      <div class="modal-body text-center">
-        <img src="imagenes/Negra.jpg" class="img-fluid mb-2">
-        <img src="imagenes/Negra1.jpg" class="img-fluid mb-2">
-        <img src="imagenes/Negra2.jpg" class="img-fluid">
-      </div>
-    </div>
-  </div>
-</div>
 
-<div class="modal fade" id="modalTabaco" tabindex="-1">
-  <div class="modal-dialog modal-lg modal-dialog-centered">
-    <div class="modal-content bg-dark text-white">
-      <div class="modal-header">
-        <h5 class="modal-title">Tabaco</h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-      </div>
-      <div class="modal-body text-center">
-        <img src="imagenes/Tabaco.jpg" class="img-fluid mb-2">
-        <img src="imagenes/Tabaco1.jpg" class="img-fluid mb-2">
-        <img src="imagenes/Tabaco2.jpg" class="img-fluid">
-      </div>
-    </div>
-  </div>
-</div>
+<script>
+function mostrarDetalles(nombre, imagenes, descripcion) {
+    document.getElementById("titulo-detalle").innerText = nombre;
+    document.getElementById("descripcion-detalle").innerText = descripcion;
 
-<div class="modal fade" id="modalChocolate" tabindex="-1">
-  <div class="modal-dialog modal-lg modal-dialog-centered">
-    <div class="modal-content bg-dark text-white">
-      <div class="modal-header">
-        <h5 class="modal-title">Chocolate</h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-      </div>
-      <div class="modal-body text-center">
-        <img src="imagenes/Chocolate.jpg" class="img-fluid mb-2">
-        <img src="imagenes/Chocolate1.jpg" class="img-fluid mb-2">
-        <img src="imagenes/Chocolate2.jpg" class="img-fluid">
-      </div>
-    </div>
-  </div>
-</div>
+    const contenedor = document.getElementById("imagenes-detalle");
+    contenedor.innerHTML = "";
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    imagenes.forEach(img => {
+        let etiqueta = document.createElement("img");
+        etiqueta.src = img;
+        etiqueta.className = "detalle-img";
+        contenedor.appendChild(etiqueta);
+    });
+
+    document.getElementById("modal").style.display = "block";
+}
+
+function cerrarModal() {
+    document.getElementById("modal").style.display = "none";
+}
+</script>
+
 </body>
 </html>
